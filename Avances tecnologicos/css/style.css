@@ -1,0 +1,306 @@
+/* ----------------------------------------------------- */
+/* 1. Base y Tipografía (Estilo Futurista - Cian/Azul Oscuro) */
+/* ----------------------------------------------------- */
+:root {
+    /* Paleta de colores Futurista */
+    --main-dark: #051C33;      /* Azul muy oscuro (Fondo) */
+    --accent-cyan: #00FFFF;    /* Cian brillante (Acento principal) */
+    --accent-blue: #0A3D62;    /* Azul intermedio (Fondo de sección) */
+    --text-light: #F0F8FF;     /* Blanco-azul (Texto principal) */
+    --text-subtle: #A0C0E0;    /* Azul claro suave (Párrafos) */
+    --card-bg: #102B45;        /* Fondo de tarjeta */
+    --max-width: 1200px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente moderna y legible */
+    line-height: 1.7;
+    color: var(--text-light);
+    background-color: var(--main-dark);
+}
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+h1, h2, h3 {
+    margin-bottom: 0.8rem;
+    line-height: 1.2;
+    color: var(--accent-cyan);
+    /* Efecto de "Glow" para títulos */
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5); 
+}
+
+h1 { font-size: 3.2rem; }
+h2 { font-size: 2.5rem; margin-top: 2.5rem; }
+h3 { font-size: 1.6rem; color: var(--text-light); }
+
+p { margin-bottom: 1rem; color: var(--text-subtle); }
+
+ul {
+    list-style: disc;
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-subtle);
+}
+
+/* Estilo de Enlaces */
+a {
+    color: var(--accent-cyan);
+    text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+a:hover {
+    color: var(--text-light);
+    text-shadow: 0 0 5px var(--accent-cyan);
+}
+
+/* ----------------------------------------------------- */
+/* 2. Navegación (Header y Nav) */
+/* ----------------------------------------------------- */
+header {
+    background-color: #000;
+    padding: 1.5rem 0;
+    border-bottom: 2px solid var(--accent-cyan);
+    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+header nav a {
+    margin-left: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+header nav a.activo {
+    color: var(--text-light);
+    border-bottom: 2px solid var(--accent-cyan);
+    text-shadow: 0 0 7px var(--accent-cyan);
+}
+
+
+/* ----------------------------------------------------- */
+/* 3. Hero Sections */
+/* ----------------------------------------------------- */
+.hero-tech, .hero-ia {
+    height: 40vh; 
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+}
+.hero-tech { 
+    background-image: url('../images/ia en el futuro.jpeg'); /* Placeholder para la portada de Tecnología */
+}
+.hero-ia { 
+    background-image: url('../images/ia.jpeg'); /* Placeholder para la portada de IA */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.intro h2 {
+    font-size: 2.8rem;
+    color: var(--text-light);
+    text-shadow: 0 0 10px var(--accent-cyan);
+}
+.intro p {
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+    color: var(--text-subtle);
+}
+
+/* ----------------------------------------------------- */
+/* 4. Layouts y Contenido */
+/* ----------------------------------------------------- */
+.section-container {
+    padding: 3rem 1.5rem;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.large-section {
+    background-color: var(--accent-blue);
+    padding: 3rem 1.5rem;
+    margin: 3rem 0;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+}
+
+.intro-text {
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--text-light);
+}
+
+/* Cuadrículas */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.grid-2.reverse {
+    grid-template-columns: 1fr 1fr;
+}
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+
+/* Tarjetas */
+.card {
+    background: var(--card-bg); 
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+    padding: 1.5rem;
+    transition: transform 0.3s, background-color 0.3s;
+    border-left: 3px solid var(--accent-cyan);
+}
+.card:hover {
+    transform: translateY(-5px);
+    background-color: #153555; /* Oscurece ligeramente */
+}
+.llm-card {
+    text-align: center;
+}
+
+/* Espacios para Imágenes */
+.image-placeholder {
+    background-color: #000;
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    overflow: hidden; 
+    border: 1px solid var(--accent-cyan);
+}
+
+.wide-placeholder {
+    min-height: 300px;
+}
+.small-placeholder {
+    min-height: 100px; 
+    max-width: 150px;
+    margin: 1rem auto;
+}
+
+.image-placeholder img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    display: block;
+    filter: brightness(0.9); /* Ligeramente oscuro */
+}
+
+/* Botón de Enlace */
+.enlace {
+    text-align: center;
+    margin-top: 3rem;
+}
+.boton {
+    display: inline-block;
+    background-color: var(--accent-cyan);
+    color: var(--main-dark);
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+}
+.boton:hover {
+    background-color: var(--text-light);
+    color: var(--main-dark);
+    box-shadow: 0 0 20px var(--accent-cyan);
+    text-decoration: none;
+}
+
+/* ----------------------------------------------------- */
+/* 5. Footer */
+/* ----------------------------------------------------- */
+footer {
+    background-color: #000;
+    color: var(--text-subtle);
+    padding: 1.5rem 0;
+    text-align: center;
+    font-size: 0.9rem;
+    border-top: 1px dashed var(--accent-blue);
+}
+
+/* ----------------------------------------------------- */
+/* 6. Responsividad Móvil */
+/* ----------------------------------------------------- */
+@media (max-width: 768px) {
+    .header-inner {
+        flex-direction: column;
+    }
+    header nav {
+        margin-top: 1rem;
+    }
+    header nav a {
+        margin: 0 0.5rem;
+    }
+    
+    .hero-tech h2, .hero-ia h2 {
+        font-size: 2rem;
+    }
+
+    .grid-2, .grid-3 {
+        grid-template-columns: 1fr;
+    }
+    
+    .grid-2 .text-content, .grid-2 .image-placeholder {
+        order: 1; /* Restablece el orden para móvil */
+    }
+    .grid-2.reverse .text-content {
+        order: 2;
+    }
+    .grid-2.reverse .image-placeholder {
+        order: 1;
+    }
+}
